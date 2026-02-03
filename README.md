@@ -2,7 +2,7 @@
 
 A robust, web-based Inventory Management System built with PHP and MySQL. This application is designed to help small to medium-sized businesses manage their stock, sales, customers, and suppliers efficiently.
 
-![Dashboard Preview](images/login.png)
+![Dashboard Preview](images/Login.png)
 
 ## 🚀 Features
 
