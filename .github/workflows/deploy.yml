@@ -1,0 +1,26 @@
+name: Deploy PHP App to AWS EC2
+
+on:
+  push:
+    branches:
+      - main # Triggers the workflow when code is pushed to the main branch
+
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Copy files to EC2 via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          source: "."
+          target: "/var/www/html" # Replace with your actual web root directory if different
+          rm: false
